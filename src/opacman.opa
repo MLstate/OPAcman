@@ -146,7 +146,9 @@ check_collision(g:Game.status):Game.status =
       do blink(->Info.draw_init(ctx))
       {g with state={game_start}}
     | {running} ->
-      Pacman.move(g)
+      rnd = get_attention()
+      //do Log.info("Running", "{rnd}")
+      (if rnd > 25 || Random.int(2) > 0 then Pacman.move(g) else g)
       |> Ghost.move
       |> check_collision
   game.set(g)
@@ -259,13 +261,18 @@ body() =
     <canvas id="game_holder" width="{width}" height="{height}">
       You can't see canvas, upgrade your browser !
     </canvas>
+    {mindwave_flash}
     <div>
       <span id="info" onready={_ -> init(scores)}></span>
       <span id="debug"></span>
     </div>
   </>
 
-server = one_page_server("OPAcman", body)
+resources = @static_resource_directory("resources")
+
+do Resource.register_external_js("/resources/neurosky/FlashToJs/api.js")
+
+server = Server.one_page_bundle("OPAcman", [resources], [], body)
 
 css = css
   canvas {

@@ -1,5 +1,3 @@
-database ./opacman
-
 db /opacman/scores: list((int, string))
 
 @server @publish Scores = {{
