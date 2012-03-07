@@ -279,3 +279,6 @@ css = css
     border: 1px solid black;
     position: absolute;
   }
+  #flashContent {
+    visibility:hidden;
+  }

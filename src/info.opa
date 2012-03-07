@@ -27,6 +27,7 @@
     do cft("Lives: {g.lives}", 30)
     do cft("Score: {g.score}", 30)
     do cft("Food left: {Map.size(g.food)}", 30)
+    do cft("Attention: {get_attention()}", 30)
 
     do if g.state == {game_over} then
       cft("'r': restart", 30)
@@ -108,7 +109,7 @@
     do Canvas.fill_text(ctx, "Type your initials, submit with 'enter'", w/2, h/2)
 
     do Canvas.set_font(ctx, "bold 50px Arial")
-    do Canvas.fill_text(ctx, scorify(name), w/2, h/2+60)    
+    do Canvas.fill_text(ctx, scorify(name), w/2, h/2+60)
     do Canvas.restore(ctx)
     void
 
