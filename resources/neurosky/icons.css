@@ -1,0 +1,53 @@
+/** @author Ida Swarczewskaja **/
+/** Icons CSS for NeuroSky OpaChat **/
+
+#user_list ul li {font-size:16px;vertical-align: middle;}
+
+span.ns-icon16 {
+background-image: url('icons-16.png');
+background-repeat: no-repeat;
+display: inline-block;
+vertical-align: middle;
+height: 16px;
+width: 16px;
+}
+.ns-icon16.attFace {background-position: 0 0;}
+.ns-icon16.blnkFace {background-position: 0 -16px;}
+.ns-icon16.medFace {background-position: 0 -32px;}
+.ns-icon16.attGlow {background-position: 0 -48px;}
+.ns-icon16.blnkGlow {background-position: 0 -64px;}
+.ns-icon16.medGlow {background-position: 0 -80px;}
+.ns-icon16.misc {background-position: 0 -96px;}
+
+span.ns-icon22 {
+background-image: url('icons-22.png');
+background-repeat: no-repeat;
+display: inline-block;
+vertical-align: middle;
+height: 22px;
+width: 22px;
+}
+.ns-icon22.attFace {background-position: 0 0;}
+.ns-icon22.blnkFace {background-position: 0 -22px;}
+.ns-icon22.medFace {background-position: 0 -44px;}
+.ns-icon22.attGlow {background-position: 0 -66px;}
+.ns-icon22.blnkGlow {background-position: 0 -88px;}
+.ns-icon22.medGlow {background-position: 0 -110px;}
+.ns-icon22.misc {background-position: 0 -132px;}
+
+span.ns-icon32 {
+background-image: url('icons-32.png');
+background-repeat: no-repeat;
+display: inline-block;
+vertical-align: middle;
+height: 32px;
+width: 32px;
+}
+.ns-icon32.attFace {background-position: 0 0;}
+.ns-icon32.blnkFace {background-position: 0 -32px;}
+.ns-icon32.medFace {background-position: 0 -64px;}
+.ns-icon32.attGlow {background-position: 0 -96px;}
+.ns-icon32.blnkGlow {background-position: 0 -128px;}
+.ns-icon32.medGlow {background-position: 0 -160px;}
+.ns-icon32.misc {background-position: 0 -192px;}
+
