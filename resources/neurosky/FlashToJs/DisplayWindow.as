@@ -163,7 +163,7 @@ package
 				ExternalInterface.call("MindWave.setSignalValue",iconLevel);
 				ExternalInterface.call("MindWave.setAttentionLevel",attentionLevel);
 				ExternalInterface.call("MindWave.setMeditationLevel",meditationLevel);
-				ExternalInterface.call("MindWave.setBlinkStrength",blinkStrength);
+				if (blinkStrength > 0) ExternalInterface.call("MindWave.setBlinkStrength",blinkStrength);
 			}
 			else
 			{
