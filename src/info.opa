@@ -34,7 +34,6 @@
     do cft("Food left: {Map.size(g.food)}", 30)
     do cft("Attention: {MindWave.get_attention_level()}", 30)
     do cft("Meditation: {MindWave.get_meditation_level()}", 30)
-    do cft("Blink: {blink}", 30)
 
     do if g.state == {game_over} then
       cft("'r': restart", 30)
@@ -47,7 +46,7 @@
 
     do Canvas.save(ctx)
     do Canvas.set_font(ctx, "bold 20px Arial")
-    do Canvas.translate(ctx, 12+base_size*grid_width, 250)
+    do Canvas.translate(ctx, 12+base_size*grid_width, 300)
     do cft("HIGH SCORES:", 30)
     do List.iter(
       (score, name) -> cft(" - {name} {score}", 30),
