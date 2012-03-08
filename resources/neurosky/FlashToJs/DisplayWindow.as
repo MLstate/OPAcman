@@ -12,6 +12,7 @@ package
 		// Public Properties:
 		public var attention:uint;
 		public var meditation:uint;
+		public var blink:uint;
 		public var poorSignal:uint;
 
 
@@ -114,6 +115,7 @@ package
 							{
 								attention = data["eSense"]["attention"];//assigning data to variables
 								meditation = data["eSense"]["meditation"];
+								blink = data["blinkStrength"];
 								//log("Attention: " + attention);//output attention data to debug
 							}
 							else
@@ -122,13 +124,14 @@ package
 								{
 									attention = 0;
 									meditation = 0;
+									blink = 0;
 									if (!data["eSense"])
 										poorSignal = 250;
 								}
 							}
 						}
-						label1.text = "Attention: " + attention.toString() + "\nMeditation: " + meditation.toString() + "\nPoor Signal: " + poorSignal.toString();
-						sendDataToJavaScript(poorSignal,attention,meditation);
+						label1.text = "Attention: " + attention.toString() + "\nMeditation: " + meditation.toString() + "\nPoor Signal: " + poorSignal.toString() + "\nblinkStrength: " + blink.toString();
+						sendDataToJavaScript(poorSignal,attention,meditation,blink);
 					}
 					catch (jError:JSONParseError)
 					{
@@ -137,7 +140,7 @@ package
 						hasStarted = false;
 						thinkGearSocket.close();
 						startThinkGearSocket();
-						sendDataToJavaScript(250, 0, 0);
+						sendDataToJavaScript(250, 0, 0, 0);
 						return;
 					}
 
@@ -153,13 +156,14 @@ package
 		 * There may be some need to check the types of these values, because they are not all
 		 * being passed to the Javascript, from what I can tell
 		 */
-		public function sendDataToJavaScript(iconLevel:uint,attentionLevel:uint,meditationLevel:uint)
+		public function sendDataToJavaScript(iconLevel:uint,attentionLevel:uint,meditationLevel:uint,blinkStrength:uint)
 		{
 			if (ExternalInterface.available)
 			{
 				ExternalInterface.call("MindWave.setSignalValue",iconLevel);
 				ExternalInterface.call("MindWave.setAttentionLevel",attentionLevel);
 				ExternalInterface.call("MindWave.setMeditationLevel",meditationLevel);
+				ExternalInterface.call("MindWave.setBlinkStrength",blinkStrength);
 			}
 			else
 			{

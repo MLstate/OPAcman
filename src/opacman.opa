@@ -288,5 +288,8 @@ css = css
     position: absolute;
   }
   #flashContent {
-    visibility:hidden;
+    visibility: hidden;
+  }
+  .blinking {
+    background: black;
   }

@@ -24,11 +24,17 @@
       do Canvas.translate(ctx, 0, dy)
       Canvas.fill_text(ctx, t, 0, 0)
 
+    blink = MindWave.get_blink_strength()
+    do if blink > 0 then
+         do Dom.add_class(#bg_holder, "blinking")
+         Scheduler.sleep(100, -> Dom.remove_class(#bg_holder, "blinking"))
+
     do cft("Lives: {g.lives}", 30)
     do cft("Score: {g.score}", 30)
     do cft("Food left: {Map.size(g.food)}", 30)
     do cft("Attention: {MindWave.get_attention_level()}", 30)
     do cft("Meditation: {MindWave.get_meditation_level()}", 30)
+    do cft("Blink: {blink}", 30)
 
     do if g.state == {game_over} then
       cft("'r': restart", 30)

@@ -15,3 +15,11 @@
 {
     return MindWave.getMeditationLevel();
 }
+
+##register get_blink_strength : -> int
+##args()
+{
+    var bs = MindWave.getBlinkStrength();
+    MindWave.setBlinkStrength(-1);
+    return bs;
+}

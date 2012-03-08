@@ -17,4 +17,8 @@ module MindWave {
     (%%mindwave.get_meditation_level%%)()
   }
 
+  client function get_blink_strength() {
+    (%%mindwave.get_blink_strength%%)()
+  }
+
 }
