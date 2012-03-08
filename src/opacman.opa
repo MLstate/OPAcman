@@ -165,9 +165,13 @@ check_collision(g:Game.status):Game.status =
     stop_propagation = false
     prevent_default = false
   }
-  match key_to_dir(e.key_code ? -1)
-  {some=_} -> { propagation with prevent_default = true }
-  {none} -> propagation
+  //do Log.info("Key", "{e.key_code}")
+  match e.key_code
+  {some=8} -> { propagation with prevent_default = true } // 8 = backspace
+  _ ->
+    match key_to_dir(e.key_code ? -1)
+    {some=_} -> { propagation with prevent_default = true }
+    {none} -> propagation
 
 @client key_handler(e) =
   g = game.get()
