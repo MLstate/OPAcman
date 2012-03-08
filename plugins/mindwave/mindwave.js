@@ -22,6 +22,6 @@
 ##args()
 {
     var bs = MindWave.getBlinkStrength();
-    MindWave.setBlinkStrength(-1);
+    if (bs > 0) MindWave.setBlinkStrength(-1);
     return bs;
 }

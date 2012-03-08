@@ -115,7 +115,7 @@ package
 							{
 								attention = data["eSense"]["attention"];//assigning data to variables
 								meditation = data["eSense"]["meditation"];
-								blink = data["blinkStrength"];
+								blink = 0;
 								//log("Attention: " + attention);//output attention data to debug
 							}
 							else
@@ -124,11 +124,14 @@ package
 								{
 									attention = 0;
 									meditation = 0;
-									blink = 0;
 									if (!data["eSense"])
 										poorSignal = 250;
 								}
 							}
+						} else {
+							blink = data["blinkStrength"];
+							if (blink > 0) ExternalInterface.call("MindWave.setBlinkStrength",blink);
+							return;
 						}
 						label1.text = "Attention: " + attention.toString() + "\nMeditation: " + meditation.toString() + "\nPoor Signal: " + poorSignal.toString() + "\nblinkStrength: " + blink.toString();
 						sendDataToJavaScript(poorSignal,attention,meditation,blink);
@@ -163,7 +166,7 @@ package
 				ExternalInterface.call("MindWave.setSignalValue",iconLevel);
 				ExternalInterface.call("MindWave.setAttentionLevel",attentionLevel);
 				ExternalInterface.call("MindWave.setMeditationLevel",meditationLevel);
-				if (blinkStrength > 0) ExternalInterface.call("MindWave.setBlinkStrength",blinkStrength);
+				//if (blinkStrength > 0) ExternalInterface.call("MindWave.setBlinkStrength",blinkStrength);
 			}
 			else
 			{
