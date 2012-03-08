@@ -3,9 +3,11 @@ import mindwave
 get_nb_moves() =
   att = MindWave.get_attention_level()
   med = MindWave.get_meditation_level()
-  slow = if att < 20 && Random.int(101) < 20 then (-1) else 0
-  if med > 80 && Random.int(101) < 20 then slow+2
-  else slow+1
+  if not(MindWave.is_present()) then 1
+  else
+    slow = if att < 20 && Random.int(101) < 20 then (-1) else 0
+    if med > 80 && Random.int(101) < 20 then slow+2
+    else slow+1
 
 mindwave_flash =
   <div id="flashContent">
