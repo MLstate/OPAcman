@@ -1,5 +1,12 @@
 import mindwave
 
+get_nb_moves() =
+  att = MindWave.get_attention_level()
+  med = MindWave.get_meditation_level()
+  if att < 20 && Random.int(101) < 20 then 0
+  else if med > 80 && Random.int(101) < 20 then 2
+  else 1
+
 mindwave_flash =
   <div id="flashContent">
     <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="220" height="400" id="FlashToJs" align="middle">
