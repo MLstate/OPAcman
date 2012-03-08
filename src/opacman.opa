@@ -164,7 +164,16 @@ check_collision(g:Game.status):Game.status =
   | 39 | 68 -> some({dir_right})
   | _ -> none
 
-@client keyfun(e) =
+@client propagation_handler(e:Dom.event) : Dom.event_propagation =
+  propagation = {
+    stop_propagation = false
+    prevent_default = false
+  }
+  match key_to_dir(e.key_code ? -1)
+  {some=_} -> { propagation with prevent_default = true }
+  {none} -> propagation
+
+@client key_handler(e) =
   g = game.get()
   p = g.pacman
   // do Dom.transform([#debug <- "{e.key_code}"])
@@ -250,7 +259,7 @@ check_collision(g:Game.status):Game.status =
   | {some=canvas} ->
     ctx = Canvas.get_context_2d(canvas) |> Option.get
     t = Scheduler.make_timer(1000/fps, next_frame(ctx))
-    _ = Dom.bind_with_options(Dom.select_document(), {keydown}, keyfun, [{prevent_default}])
+    _ = Dom.bind_with_options(Dom.select_document(), {keydown}, key_handler, [{~propagation_handler}])
     t.start()
 
 body() =
