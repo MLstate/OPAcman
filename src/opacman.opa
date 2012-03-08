@@ -146,10 +146,11 @@ check_collision(g:Game.status):Game.status =
       do blink(->Info.draw_init(ctx))
       {g with state={game_start}}
     | {running} ->
-      att = get_attention()
+      att = MindWave.get_attention_level()
+      med = MindWave.get_meditation_level()
       //do Log.info("Running", "{rnd}")
       (if att < 20 && Random.int(101) < 20 then g
-       else if att > 80 && Random.int(101) < 20 then
+       else if med > 80 && Random.int(101) < 20 then
          Pacman.move(g) |> Pacman.move(_)
        else Pacman.move(g)
       ) |> Ghost.move |> check_collision

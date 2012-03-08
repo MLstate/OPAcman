@@ -27,7 +27,8 @@
     do cft("Lives: {g.lives}", 30)
     do cft("Score: {g.score}", 30)
     do cft("Food left: {Map.size(g.food)}", 30)
-    do cft("Attention: {get_attention()}", 30)
+    do cft("Attention: {MindWave.get_attention_level()}", 30)
+    do cft("Meditation: {MindWave.get_meditation_level()}", 30)
 
     do if g.state == {game_over} then
       cft("'r': restart", 30)
