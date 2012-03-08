@@ -146,11 +146,13 @@ check_collision(g:Game.status):Game.status =
       do blink(->Info.draw_init(ctx))
       {g with state={game_start}}
     | {running} ->
-      rnd = get_attention()
+      att = get_attention()
       //do Log.info("Running", "{rnd}")
-      (if rnd > 25 || Random.int(2) > 0 then Pacman.move(g) else g)
-      |> Ghost.move
-      |> check_collision
+      (if att < 20 && Random.int(101) < 20 then g
+       else if att > 80 && Random.int(101) < 20 then
+         Pacman.move(g) |> Pacman.move(_)
+       else Pacman.move(g)
+      ) |> Ghost.move |> check_collision
   game.set(g)
 
 @client key_to_dir(code:int) =
