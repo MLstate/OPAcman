@@ -7,14 +7,21 @@
     steps = p.mouth_steps
 
     do Canvas.save(ctx)
-    do Canvas.set_fill_style(ctx, {color=Color.black})
+    color =
+      att = MindWave.is_present() && MindWave.get_attention_level() < 20
+      med = MindWave.is_present() && MindWave.get_meditation_level() > 80
+      if att && med then Color.black
+      else if att then Color.red
+      else if med then Color.green
+      else Color.black
+    do Canvas.set_fill_style(ctx, {~color})
     (center_x, center_y) = Base.center(p.base)
     do Canvas.translate(ctx, center_x, center_y)
     alpha = Base.Dir.facing_angle(p.base.dir)
     do Canvas.rotate(ctx, alpha)
 
     angle = Math.PI*Int.to_float(steps-mouth)/Int.to_float(5*steps)
-    
+
     do Canvas.begin_path(ctx)
     do Canvas.move_to(ctx, -w/10, 0)
     do Canvas.arc(ctx, 0, 0, w/2, -angle, angle, true)
@@ -34,13 +41,13 @@
          && p.base.pos.x == 0 then
       draw_clones({x=_ ~y} -> {x=grid_width ~y}, p, ctx)
     else if (p.base.dir == {left} || p.base.dir == {right})
-         && p.base.pos.x == grid_width-1 then 
+         && p.base.pos.x == grid_width-1 then
       draw_clones({x=_ ~y} -> {x=-1 ~y}, p, ctx)
     else if (p.base.dir == {up} || p.base.dir == {down})
-         && p.base.pos.y == 0 then 
+         && p.base.pos.y == 0 then
       draw_clones({~x y=_} -> {~x y=grid_heigth}, p, ctx)
     else if (p.base.dir == {up} || p.base.dir == {down})
-         && p.base.pos.y == grid_heigth-1 then 
+         && p.base.pos.y == grid_heigth-1 then
       draw_clones({~x y=_} -> {~x y=-1}, p, ctx)
     else draw_one(p, ctx)
 
