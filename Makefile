@@ -13,6 +13,9 @@ plugins: plugins/mindwave/mindwave.js
 $(EXE): plugins src/*.opa resources/*
 	opa --parser classic src/*.opa *.opp -o $(EXE)
 
+run: all
+	./$(EXE) $(RUN_OPT) || true
+
 clean:
 	rm -Rf *.opx* *.opp*
 	rm -Rf *.exe _build _tracks *.log **/#*#
