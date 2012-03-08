@@ -60,21 +60,23 @@ $(document).ready(function() {
 });
 
 // var MindWave = (function () {
-//    return {
-//        displayIcon: function() {
-// 	   return Math.random() > 0.1;
-//        },
-//        getAttentionLevel: function() {
-// 	   return Math.floor(Math.random()*101);
-//        },
-//        getMeditationLevel: function() {
-// 	   return Math.floor(Math.random()*101);
-//        },
-//        setBlinkStrength: function() {
-//        },
-//        getBlinkStrength: function() {
-// 	   return Math.floor(Math.random()*2);
-//        }
-//    };
+//     return {
+// 	setSignalValue:function(iconValue) {
+// 	},
+// 	displayIcon: function() {
+// 	    return Math.random() > 0.1;
+// 	},
+// 	getAttentionLevel: function() {
+// 	    return Math.floor(Math.random()*101);
+// 	},
+// 	getMeditationLevel: function() {
+// 	    return Math.floor(Math.random()*101);
+// 	},
+// 	setBlinkStrength: function() {
+// 	},
+// 	getBlinkStrength: function() {
+// 	    return Math.floor(Math.random()*2);
+// 	}
+//     };
 // }());
 
