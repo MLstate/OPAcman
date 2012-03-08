@@ -1,7 +1,9 @@
 ##register is_present : -> bool
 ##args()
 {
-    return MindWave.displayIcon();
+    var present = MindWave.displayIcon();
+    if (present) MindWave.setSignalValue(250);
+    return present;
 }
 
 ##register get_attention_level : -> int
