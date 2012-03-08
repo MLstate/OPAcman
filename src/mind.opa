@@ -1,20 +1,5 @@
 import mindwave
 
-@client attention : reference(int) = ClientReference.create(100)
-
-get_attention() = ClientReference.get(attention)
-
-@client init_scheduling =
-  Scheduler.timer(1000, ->
-    if MindWave.is_present() then (
-      att = MindWave.get_attention_level()
-      do ClientReference.set(attention, att)
-      Log.info("Attention", "{att}")
-    ) else (
-      Log.info("Mindwave", "NONE")
-    )
-  )
-
 mindwave_flash =
   <div id="flashContent">
     <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="220" height="400" id="FlashToJs" align="middle">
