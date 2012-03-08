@@ -61,7 +61,7 @@ $(document).ready(function() {
 
 // var MindWave = (function () {
 //    return {
-//        isPresent: function() {
+//        displayIcon: function() {
 // 	   return Math.random() > 0.1;
 //        },
 //        getAttentionLevel: function() {
@@ -73,9 +73,8 @@ $(document).ready(function() {
 //        setBlinkStrength: function() {
 //        },
 //        getBlinkStrength: function() {
-// 	   return Math.floor(Math.random());;
+// 	   return Math.floor(Math.random()*2);
 //        }
-
 //    };
 // }());
 
