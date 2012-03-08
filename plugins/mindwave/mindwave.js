@@ -2,7 +2,7 @@
 ##args()
 {
     var present = MindWave.displayIcon();
-    if (present) MindWave.setSignalValue(250);
+    //if (present) MindWave.setSignalValue(250);
     return present;
 }
 
