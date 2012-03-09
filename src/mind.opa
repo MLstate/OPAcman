@@ -5,9 +5,9 @@ get_nb_moves() =
   med = MindWave.get_meditation_level()
   if not(MindWave.is_present()) then 1
   else
-    slow = if att < 20 && Random.int(101) < 20 then (-1) else 0
-    if med > 80 && Random.int(101) < 20 then slow+2
-    else slow+1
+    slow = if att < 40 && Random.int(101) < 20 then (-2) else 0
+    if med > 70 && Random.int(101) < 20 then slow+3
+    else slow+2
 
 mindwave_flash =
   <div id="flashContent">

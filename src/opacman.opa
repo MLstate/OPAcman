@@ -2,7 +2,7 @@ import stdlib.web.canvas
 
 /* Config */
 
-fps = 60
+fps = 30
 base_size = 32
 grid_width  = List.length(List.head(grid))
 grid_heigth = List.length(grid)
@@ -15,8 +15,8 @@ clear_bonus = 500
 life_points = 2500
 
 pacman_speed = 10
-pacman_speed_on_steroids = 8
-ghosts_speed = 11
+pacman_speed_on_steroids = 6
+ghosts_speed = 8
 
 /* Defaults */
 
