@@ -11,7 +11,7 @@ plugins: plugins/mindwave/mindwave.js
 	$(OPA) $(OPA_OPT) plugins/mindwave/mindwave.opa mindwave.opp
 
 $(EXE): plugins src/*.opa resources/*
-	opa --parser classic src/*.opa *.opp -o $(EXE)
+	$(OPA) --parser classic src/*.opa *.opp -o $(EXE)
 
 run: all
 	./$(EXE) $(RUN_OPT) || true
