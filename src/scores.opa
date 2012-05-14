@@ -1,10 +1,12 @@
 db /opacman/scores: list((int, string))
 
-@server @publish Scores = {{
+Scores = {{
 
+  @publish
   get() =
     /opacman/scores
 
+  @publish
   add(name, value) =
     nl = String.length(name)
     name =
